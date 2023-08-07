@@ -10,8 +10,6 @@ x-veld:
 services:
   veld:
     build: .
-#    volumes:
-#      - ./veld_dummy_data_3_basex:/veld/storage
     ports:
       - 8984:8984
     command: basexhttp
