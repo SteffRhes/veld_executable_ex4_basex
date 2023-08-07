@@ -1,0 +1,17 @@
+x-veld:
+  executable:
+    about:
+      description: "dummy veld for testing and showcasing"
+    storage:
+      path: /veld/storage
+      format: "BaseX database"
+      kind: "dummy data"
+
+services:
+  veld:
+    build: .
+#    volumes:
+#      - ./veld_dummy_data_3_basex:/veld/storage
+    ports:
+      - 8984:8984
+    command: basexhttp
