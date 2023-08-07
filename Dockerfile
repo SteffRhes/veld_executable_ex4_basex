@@ -4,9 +4,9 @@ RUN apk update
 RUN apk add shadow
 RUN usermod -u 1000 basex
 RUN groupmod -g 1000 basex
-RUN mkdir -p /veld/
+RUN mkdir -p /veld/storage
 RUN chown -R basex:basex /veld
-RUN ln -s /srv/basex/data /veld/storage
 USER basex
+COPY ./basex_config /srv/basex/.basex
 EXPOSE 8984
 
