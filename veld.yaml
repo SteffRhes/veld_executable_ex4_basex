@@ -2,10 +2,16 @@ x-veld:
   executable:
     about:
       description: "dummy veld for testing and showcasing"
+    input/output:
+      type: "BaseX http endpoint"
+      url_path: "/rest"
+      port: 8984
     storage:
       path: /veld/storage
-      format: "BaseX database"
-      kind: "dummy data"
+      type: "BaseX Storage"
+    docker_context:
+      type: "docker network"
+      optional: true
 
 services:
   veld:
@@ -14,7 +20,7 @@ services:
       - 8984:8984
     healthcheck:
       test: curl -f admin:admin@localhost:8984/rest
-      interval: 10s
+      interval: 5s
       timeout: 5s
       retries: 1
       start_period: 5s
