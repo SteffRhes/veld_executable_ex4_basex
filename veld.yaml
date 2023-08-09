@@ -1,17 +1,23 @@
 x-veld:
   executable:
     about:
-      description: "dummy veld for testing and showcasing"
+      description: "example veld for testing and showcasing"
+    topics: "data persistence"
     input/output:
-      type: "BaseX http endpoint"
-      url_path: "/rest"
-      port: 8984
-    storage:
-      path: /veld/storage
-      type: "BaseX Storage"
-    docker_context:
-      type: "docker network"
-      optional: true
+      a:
+        type: "files"
+        format: "BaseX Storage"
+        path: /veld/storage/
+      b:
+        type: 
+          - "BaseX HTTP endpoint"
+          - "REST API"
+        format: "xml"
+        url_path: "/rest"
+        port: 8984
+      c:
+        type: "Docker network"
+        optional: true
 
 services:
   veld:
